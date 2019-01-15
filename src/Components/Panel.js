@@ -55,7 +55,9 @@ class Panel extends Component {
         }
     }
 
-    
+    componentDidMount() {
+        console.log('mounted')
+    }
 
     render() {
         const quizData = this.props.quizData;
@@ -66,6 +68,7 @@ class Panel extends Component {
             const comp =
                 <AnswerLineContainer
                     key={answerIndex}
+                    status={'asd'}
                 >
                     <CheckCircle
                     type="radio"

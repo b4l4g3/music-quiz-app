@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getQuizData } from './../helper.js';
 import styled, { createGlobalStyle } from 'styled-components';
 import Panel from './Panel';
-// import Control from './Control';
+import ResultPage from './ResultPage';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Roboto');
@@ -33,6 +33,7 @@ const Arrow = styled.img`
 const PageNumber = styled.p`
   padding-bottom: 4px;
   font-family: Roboto;
+  font-size: 18px;
 `
 
 class App extends Component {
@@ -41,17 +42,14 @@ class App extends Component {
     this.onSiteChanged = this.onSiteChanged.bind(this);
     this.state = {
       currentQuestionIndex: 0,
+      done: false
     }
   }
 
   changeQuestion(direction) {
     this.setState((state) => {
-      if (direction == 'right') {
-        return {
-          currentQuestionIndex: state.currentQuestionIndex + 1,
-        }
-      } else if(direction == 'right' && state.currentQuestionIndex == 9) {
-        return
+      if (direction === 'right') {
+       return state.currentQuestionIndex == 9 ? {currentQuestionIndex: state.currentQuestionIndex + 1, done:true} : {currentQuestionIndex: state.currentQuestionIndex + 1};       
       } else {
         return {
           currentQuestionIndex: state.currentQuestionIndex - 1,
@@ -60,14 +58,15 @@ class App extends Component {
     })
   }
 
-onSiteChanged(e, question) {
-  let eventtarget = e.currentTarget.value;
-  this.setState((state) => {
-    const hyperstate = state;
-    hyperstate.questions[question.questionIndex].buttonState = eventtarget;
-    return hyperstate;
-  });
-}
+  onSiteChanged(e, question) {
+    if (this.state.done) {return}
+    let eventtarget = e.currentTarget.value;
+    this.setState((state) => {
+      const hyperstate = state;
+      hyperstate.questions[question.questionIndex].buttonState = eventtarget;
+      return hyperstate;
+    });
+  }
 
   componentDidMount() {
     getQuizData(this);
@@ -77,22 +76,28 @@ onSiteChanged(e, question) {
     console.dir(this.state);
     if (this.state.currentQuestionIndex === 10) {
       return (
-     <h1>End</h1>
+        <Wrapper>
+        <ResultPage />
+        <Control>
+            <Arrow src={'./Icons/left-arrow.svg'} onClick={() => this.changeQuestion('left')} />
+            <PageNumber>Check out your answers</PageNumber>
+          </Control>
+          </Wrapper>
       )
     } else if (this.state.questions) {
       const panels = [];
-    this.state.questions.forEach((question) => {
-      const comp = 
-      <Panel quizData={question} handleChange={this.onSiteChanged} />;
-      panels.push(comp);
-    })
+      this.state.questions.forEach((question) => {
+        const comp =
+          <Panel quizData={question} handleChange={this.onSiteChanged} />;
+        panels.push(comp);
+      })
       return (
         <Wrapper>
           <GlobalStyle />
           {panels[this.state.currentQuestionIndex]}
           <Control>
             <Arrow src={'./Icons/left-arrow.svg'} onClick={() => this.changeQuestion('left')} />
-            <PageNumber>{this.state.currentQuestionIndex + 1}/{this.state.questions.length}</PageNumber>
+            <PageNumber>{this.state.currentQuestionIndex + 1} / {this.state.questions.length}</PageNumber>
             <Arrow src={'./Icons/right-arrow.svg'} onClick={() => this.changeQuestion('right')} />
           </Control>
         </Wrapper>
