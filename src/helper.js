@@ -4,16 +4,18 @@ const randomNumber = (max) => {
 
 const setStateTemplate = (quizData, component) => {
     const questions = quizData.results.map(key => {
-        key.incorrect_answers.splice(randomNumber(quizData.results.length+1), 0, key.correct_answer)
+        key.incorrect_answers.splice(randomNumber(quizData.results.length+1), 0, key.correct_answer);
         return {
             question: key.question,
             answers: key.incorrect_answers,
-            correct_answer: key.correct_answer
+            correct_answer: key.correct_answer,
+            buttonState: 4,
+            questionIndex: quizData.results.indexOf(key)
+
         }
     })
     return {
-        questions,
-        currentQuestion: questions[component.state.index]
+        questions
     }
 }
 
