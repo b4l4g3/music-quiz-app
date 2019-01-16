@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  user-select: none;
 `
 
 const Control = styled.div`

@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-family: Roboto;
 `
 
 const ResultsH1 = styled.p`
-
+position: fixed;
+top: 25%;
+font-size: 30px;
+font-family: Merriweather;
+letter-spacing: 1px;
 `
 
 const Procent = styled.p`
@@ -18,11 +27,31 @@ const ResultsH2 = styled.p`
 `
 
 const ButtonContainer = styled.div`
-
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
 `
 
 const Button = styled.button`
-
+margin-bottom: 10px;
+background-color: #FF6B1D;
+border: 0;
+padding: 10px;
+color: white;
+border-radius: 3px;
+cursor: pointer;
+    &:focus {
+        outline:0;
+    }
+    &:active {
+        box-shadow: inset 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    }
+    &:hover {
+        background-color: #FF884A;
+        color: #e7e7e7;
+    }
 `
 
 
