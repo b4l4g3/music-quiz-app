@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getQuizData } from './../helper.js';
+import { getQuizData, makeResults } from './../helper.js';
 import styled, { createGlobalStyle } from 'styled-components';
 import Panel from './Panel';
 import ResultPage from './ResultPage';
@@ -28,6 +28,7 @@ const Arrow = styled.img`
   width: 40px;
   cursor: pointer;
   margin: 30px 25px;
+  visibility: ${props => props.visible===0 ? 'hidden' : 'visible'}
 `
 
 const PageNumber = styled.p`
@@ -36,10 +37,14 @@ const PageNumber = styled.p`
   font-size: 18px;
 `
 
+const Button = styled.button`
+
+`
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.onSiteChanged = this.onSiteChanged.bind(this);
+    this.onOptionChanged = this.onOptionChanged.bind(this);
     this.state = {
       currentQuestionIndex: 0,
       done: false
@@ -49,7 +54,7 @@ class App extends Component {
   changeQuestion(direction) {
     this.setState((state) => {
       if (direction === 'right') {
-       return state.currentQuestionIndex == 9 ? {currentQuestionIndex: state.currentQuestionIndex + 1, done:true} : {currentQuestionIndex: state.currentQuestionIndex + 1};       
+       return state.currentQuestionIndex === 9 ? {currentQuestionIndex: state.currentQuestionIndex + 1, done:true, correctAnswers: makeResults(this)} : {currentQuestionIndex: state.currentQuestionIndex + 1};       
       } else {
         return {
           currentQuestionIndex: state.currentQuestionIndex - 1,
@@ -58,7 +63,7 @@ class App extends Component {
     })
   }
 
-  onSiteChanged(e, question) {
+  onOptionChanged(e, question) {
     if (this.state.done) {return}
     let eventtarget = e.currentTarget.value;
     this.setState((state) => {
@@ -73,22 +78,18 @@ class App extends Component {
   }
 
   render() {
-    console.dir(this.state);
+    console.dir(this.state)
     if (this.state.currentQuestionIndex === 10) {
       return (
         <Wrapper>
-        <ResultPage />
-        <Control>
-            <Arrow src={'./Icons/left-arrow.svg'} onClick={() => this.changeQuestion('left')} />
-            <PageNumber>Check out your answers</PageNumber>
-          </Control>
+        <ResultPage result={this.state.correctAnswers} />
           </Wrapper>
       )
     } else if (this.state.questions) {
       const panels = [];
       this.state.questions.forEach((question) => {
         const comp =
-          <Panel quizData={question} handleChange={this.onSiteChanged} />;
+          <Panel done={this.state.done} quizData={question} handleChange={this.onOptionChanged} />;
         panels.push(comp);
       })
       return (
@@ -96,7 +97,7 @@ class App extends Component {
           <GlobalStyle />
           {panels[this.state.currentQuestionIndex]}
           <Control>
-            <Arrow src={'./Icons/left-arrow.svg'} onClick={() => this.changeQuestion('left')} />
+            <Arrow visible={this.state.currentQuestionIndex} src={'./Icons/left-arrow.svg'} onClick={() => this.changeQuestion('left')} />
             <PageNumber>{this.state.currentQuestionIndex + 1} / {this.state.questions.length}</PageNumber>
             <Arrow src={'./Icons/right-arrow.svg'} onClick={() => this.changeQuestion('right')} />
           </Control>

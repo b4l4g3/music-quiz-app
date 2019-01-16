@@ -17,6 +17,15 @@ const ResultsH2 = styled.p`
 
 `
 
+const ButtonContainer = styled.div`
+
+`
+
+const Button = styled.button`
+
+`
+
+
 class ResultPage extends Component {
     render() {
         const resultTexts = {
@@ -39,9 +48,13 @@ class ResultPage extends Component {
         }
         return (
             <Wrapper>
-                <ResultsH1></ResultsH1>
-                <Procent>Haha</Procent>
-                <ResultsH2></ResultsH2>
+                <ResultsH1>Quiz Results</ResultsH1>
+                <Procent>{result/10*100}%</Procent>
+                <ResultsH2>{resultText}</ResultsH2>
+                <ButtonContainer>
+                    <Button>Check out your answers</Button>
+                    <Button>Try Again</Button>
+                </ButtonContainer>
             </Wrapper>
         )
     }

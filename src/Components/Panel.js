@@ -55,20 +55,37 @@ class Panel extends Component {
         }
     }
 
-    componentDidMount() {
-        console.log('mounted')
-    }
-
     render() {
+        const done = this.props.done;
         const quizData = this.props.quizData;
         const handleChange = this.props.handleChange;
         const answers = [];
         quizData.answers.forEach((answer) => {
             const answerIndex = quizData.answers.indexOf(answer);
+            const styles = {
+                correct: {
+                    backgroundColor: 'green'
+                },
+                incorrect: {
+                    backgroundColor: 'red'
+                },
+                unanswered: {
+                    backgroundColor: 'white'
+                }
+            }
+            let answerStyle;
+            if (done && Number(quizData.buttonState)===answerIndex) {
+                String(quizData.correct_answer) === String(answer) ? answerStyle = styles.correct : answerStyle = styles.incorrect;
+            } else if (done && String(answer) === String(quizData.correct_answer) && quizData.buttonState) {
+                answerStyle = styles.correct;
+            }
+            // console.dir(answers[quizData.buttonState])
+            // console.dir(quizData.correct_answer)
             const comp =
                 <AnswerLineContainer
                     key={answerIndex}
                     status={'asd'}
+                    style={answerStyle}
                 >
                     <CheckCircle
                     type="radio"

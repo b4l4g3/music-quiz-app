@@ -9,7 +9,6 @@ const setStateTemplate = (quizData, component) => {
             question: key.question,
             answers: key.incorrect_answers,
             correct_answer: key.correct_answer,
-            buttonState: 4,
             questionIndex: quizData.results.indexOf(key)
 
         }
@@ -27,4 +26,13 @@ const getQuizData = (component) => {
         })
 }
 
-export { getQuizData }
+const makeResults = (component) => {
+    let correctAnswers = 0;
+    component.state.questions.forEach((q) => {
+        if (q.correct_answer === q.answers[q.buttonState]) correctAnswers++;
+    })
+    console.dir(correctAnswers)
+    return correctAnswers;
+}
+
+export { getQuizData, makeResults }
