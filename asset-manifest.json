@@ -1,11 +1,11 @@
 {
-  "main.js": "/music-quiz-app/static/js/main.ec575eba.chunk.js",
-  "main.js.map": "/music-quiz-app/static/js/main.ec575eba.chunk.js.map",
-  "static/js/1.f0f837e1.chunk.js": "/music-quiz-app/static/js/1.f0f837e1.chunk.js",
-  "static/js/1.f0f837e1.chunk.js.map": "/music-quiz-app/static/js/1.f0f837e1.chunk.js.map",
+  "main.js": "/music-quiz-app/static/js/main.e4d9974f.chunk.js",
+  "main.js.map": "/music-quiz-app/static/js/main.e4d9974f.chunk.js.map",
+  "static/js/1.7545ac31.chunk.js": "/music-quiz-app/static/js/1.7545ac31.chunk.js",
+  "static/js/1.7545ac31.chunk.js.map": "/music-quiz-app/static/js/1.7545ac31.chunk.js.map",
   "runtime~main.js": "/music-quiz-app/static/js/runtime~main.633bc8d0.js",
   "runtime~main.js.map": "/music-quiz-app/static/js/runtime~main.633bc8d0.js.map",
   "index.html": "/music-quiz-app/index.html",
-  "precache-manifest.89af2985d1905e70986dc366369def7a.js": "/music-quiz-app/precache-manifest.89af2985d1905e70986dc366369def7a.js",
+  "precache-manifest.4dd06803a0936dd5aa9b9b026a9fb49d.js": "/music-quiz-app/precache-manifest.4dd06803a0936dd5aa9b9b026a9fb49d.js",
   "service-worker.js": "/music-quiz-app/service-worker.js"
 }
