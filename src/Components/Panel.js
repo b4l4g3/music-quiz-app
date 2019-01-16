@@ -6,17 +6,21 @@ const Wrapper = styled.div`
     margin: 15% auto;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
 `
 
 const Question = styled.p`
     font-family: Merriweather;
     line-height: 1.5em;
     font-size: 1.45em;
+    text-align: center;
 `
 
 const AnswerWrapper = styled.form`
     display: flex;
     flex-direction: column;
+    align-self: center;
+    margin-left: 45px;
 `
 
 const AnswerLineContainer = styled.label`
@@ -30,20 +34,19 @@ const Answer = styled.p`
     font-family: Roboto;
     font-size: 1.25em;
     margin-left: 15px;
+    width: 200px;
 `
 
 const CheckCircle = styled.input`
+    appearance: none;
     height: 25px;
     width: 25px;
     border: 3px solid #FF6B1D;
     border-radius: 50%;
-    content: '';
     display: inline-flex;
     justify-self: center;
     margin-top: 18.5px;
-    background-color: ${props =>
-        props.status === 'selected' ? "#FF6B1D" : "white"
-    }
+    background-color: ${props => props.checked ? '#FF6B1D' : '#fff5ec'} 
 `
 
 class Panel extends Component {
@@ -64,13 +67,10 @@ class Panel extends Component {
             const answerIndex = quizData.answers.indexOf(answer);
             const styles = {
                 correct: {
-                    backgroundColor: 'green'
+                    color: 'MediumSeaGreen '
                 },
                 incorrect: {
-                    backgroundColor: 'red'
-                },
-                unanswered: {
-                    backgroundColor: 'white'
+                    color: 'Crimson'
                 }
             }
             let answerStyle;
@@ -90,7 +90,7 @@ class Panel extends Component {
                     <CheckCircle
                     type="radio"
                         value={answerIndex}
-                        checked={Number(quizData.buttonState) === answerIndex} 
+                        checked={Number(quizData.buttonState) === answerIndex}
                         onChange={(e) => {
                             handleChange(e, quizData);
                         }}

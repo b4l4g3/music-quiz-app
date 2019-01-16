@@ -14,7 +14,8 @@ const setStateTemplate = (quizData, component) => {
         }
     })
     return {
-        questions
+        questions,
+        currentQuestionIndex: 0
     }
 }
 

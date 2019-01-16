@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   user-select: none;
+  background-color: #fff5ec;
 `
 
 const Control = styled.div`
@@ -38,16 +39,14 @@ const PageNumber = styled.p`
   font-size: 18px;
 `
 
-const Button = styled.button`
-
-`
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.onOptionChanged = this.onOptionChanged.bind(this);
+    this.changeQuestion = this.changeQuestion.bind(this);
+    this.reset = this.reset.bind(this);
     this.state = {
-      currentQuestionIndex: 0,
       done: false
     }
   }
@@ -74,6 +73,14 @@ class App extends Component {
     });
   }
 
+  reset() {
+    this.setState({
+      done: false
+    })
+    getQuizData(this);
+    
+  }
+
   componentDidMount() {
     getQuizData(this);
   }
@@ -83,7 +90,7 @@ class App extends Component {
     if (this.state.currentQuestionIndex === 10) {
       return (
         <Wrapper>
-        <ResultPage result={this.state.correctAnswers} />
+        <ResultPage result={this.state.correctAnswers} backFunc={this.changeQuestion} tryAgainFunc={this.reset} />
           </Wrapper>
       )
     } else if (this.state.questions) {
