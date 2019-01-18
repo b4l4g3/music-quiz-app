@@ -1,11 +1,11 @@
 {
-  "main.js": "/music-quiz-app/static/js/main.8390a4da.chunk.js",
-  "main.js.map": "/music-quiz-app/static/js/main.8390a4da.chunk.js.map",
+  "main.js": "/music-quiz-app/static/js/main.fb13212a.chunk.js",
+  "main.js.map": "/music-quiz-app/static/js/main.fb13212a.chunk.js.map",
   "static/js/1.de49f17e.chunk.js": "/music-quiz-app/static/js/1.de49f17e.chunk.js",
   "static/js/1.de49f17e.chunk.js.map": "/music-quiz-app/static/js/1.de49f17e.chunk.js.map",
   "runtime~main.js": "/music-quiz-app/static/js/runtime~main.633bc8d0.js",
   "runtime~main.js.map": "/music-quiz-app/static/js/runtime~main.633bc8d0.js.map",
   "index.html": "/music-quiz-app/index.html",
-  "precache-manifest.18261c93162f2817e0fbe8e7434fdffc.js": "/music-quiz-app/precache-manifest.18261c93162f2817e0fbe8e7434fdffc.js",
+  "precache-manifest.cd23b2946eaa0d325cb776be580749c0.js": "/music-quiz-app/precache-manifest.cd23b2946eaa0d325cb776be580749c0.js",
   "service-worker.js": "/music-quiz-app/service-worker.js"
 }
