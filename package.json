@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://b4l4g3.github.io/music-quiz-app/",
   "dependencies": {
+    "npm": "^6.5.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-radio-buttons": "^1.2.2",

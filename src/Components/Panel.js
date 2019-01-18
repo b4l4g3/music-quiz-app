@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     width: 80%;
-    margin: 15% auto;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
 `
 
 const Question = styled.p`
@@ -20,7 +18,6 @@ const AnswerWrapper = styled.form`
     display: flex;
     flex-direction: column;
     align-self: center;
-    margin-left: 45px;
 `
 
 const AnswerLineContainer = styled.label`
@@ -35,6 +32,8 @@ const Answer = styled.p`
     font-size: 1.25em;
     margin-left: 15px;
     width: 200px;
+    text-align: center;
+    padding-right: 15px;
 `
 
 const CheckCircle = styled.input`

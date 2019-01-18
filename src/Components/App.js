@@ -14,6 +14,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   user-select: none;
   background-color: #fff5ec;
+  align-items: center;
+  font-size: 16px;
+  @media (max-width: 350px) {
+    font-size: 14px};
+  }
+}
 `
 
 const Control = styled.div`
@@ -22,8 +28,8 @@ const Control = styled.div`
   align-items: center;
   justify-content: center;
   position: fixed;
-  bottom: 5%;
   width: 100%;
+  bottom: 3%;
 `
 
 const Arrow = styled.img`
@@ -36,7 +42,7 @@ const Arrow = styled.img`
 const PageNumber = styled.p`
   padding-bottom: 4px;
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 1.1em;
 `
 
 
