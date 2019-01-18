@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/music-quiz-app/static/js/runtime~main.633bc8d0.js"
   },
   {
-    "revision": "fb13212a1a28713fa6e0",
-    "url": "/music-quiz-app/static/js/main.fb13212a.chunk.js"
+    "revision": "1d89ab16231e6c5225dc",
+    "url": "/music-quiz-app/static/js/main.1d89ab16.chunk.js"
   },
   {
     "revision": "de49f17edaed8fff69e3",
     "url": "/music-quiz-app/static/js/1.de49f17e.chunk.js"
   },
   {
-    "revision": "0e36a70025dab68313321eed4137a463",
+    "revision": "c824cc2a653c15d076140072a57dca73",
     "url": "/music-quiz-app/index.html"
   }
 ];
