@@ -19,11 +19,11 @@ letter-spacing: 1px;
 `
 
 const Procent = styled.p`
-color: #FF884A;
+color: #e96e5f;
 font-size: 40px;
 font-weight: 600;
 padding-top: 50px;
-text-shadow: 0.2px 0.2px 3px orange;
+text-shadow: 0.2px 0.2px 3px #6b0303;
 `
 
 const ResultsH2 = styled.p`
@@ -42,7 +42,7 @@ margin-top: 25px;
 
 const Button = styled.button`
 margin-bottom: 10px;
-background-color: #FF6B1D;
+background-color: #e96e5f;
 border: 0;
 padding: 10px;
 color: white;
