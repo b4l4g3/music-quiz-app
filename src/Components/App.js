@@ -30,6 +30,9 @@ const Control = styled.div`
   position: fixed;
   width: 100%;
   bottom: 3%;
+  @media (max-width: 350px) {
+    margin-bottom: -10px;
+  }
 `
 
 const Arrow = styled.img`
@@ -37,6 +40,10 @@ const Arrow = styled.img`
   cursor: pointer;
   margin: 30px 25px;
   visibility: ${props => props.visible===0 ? 'hidden' : 'visible'}
+  @media (max-width: 350px) {
+    width: 1.8em;
+    margin: 15px 20px;
+  }
 `
 
 const PageNumber = styled.p`
