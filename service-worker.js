@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/music-quiz-app/precache-manifest.cd69175a2d14ca3d5d3da5a2a162fcff.js"
+  "/music-quiz-app/precache-manifest.e53e2b58809c1fffcbc46c1dd142c425.js"
 );
 
 workbox.clientsClaim();
