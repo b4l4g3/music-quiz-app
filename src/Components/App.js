@@ -16,6 +16,8 @@ const Wrapper = styled.div`
   background-color: #fff5ec;
   align-items: center;
   font-size: 16px;
+  background-image: linear-gradient(to top, #ff9e96 0%, #f5efef 100%);
+  color: #763333;
   @media (max-width: 350px) {
     font-size: 14px};
   }

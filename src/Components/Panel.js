@@ -5,6 +5,12 @@ const Wrapper = styled.div`
     width: 80%;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    @media (min-width: 400px) {
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient( to bottom, #c95a5a, rgba(0, 0, 0, 0) ) 1 100%;
+    };
 `
 
 const Question = styled.p`
@@ -29,23 +35,26 @@ const AnswerLineContainer = styled.label`
 const Answer = styled.p`
     font-family: Roboto;
     font-family: Roboto;
-    font-size: 1.25em;
+    font-size: 1.15em;
     margin-left: 15px;
     width: 200px;
     text-align: center;
     padding-right: 15px;
+    cursor: pointer;
 `
 
 const CheckCircle = styled.input`
     appearance: none;
     height: 25px;
     width: 25px;
-    border: 3px solid #FF6B1D;
+    border: 3px solid #c95a5a;
     border-radius: 50%;
     display: inline-flex;
     justify-self: center;
     margin-top: 18.5px;
-    background-color: ${props => props.checked ? '#FF6B1D' : '#fff5ec'} 
+    outline: none;
+    cursor: pointer;
+    background-color: ${props => props.checked ? '#c95a5a' : '#f6e5e491'} 
 `
 
 class Panel extends Component {
