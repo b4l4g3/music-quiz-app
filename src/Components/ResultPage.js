@@ -55,7 +55,7 @@ cursor: pointer;
         box-shadow: inset 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
     }
     &:hover {
-        background-color: #FF884A;
+        background-color: #ce5243;
         color: #e7e7e7;
     }
 `
